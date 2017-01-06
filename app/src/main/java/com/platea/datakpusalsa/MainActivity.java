@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 
 import com.google.gson.GsonBuilder;
 import com.platea.datakpusalsa.interfaces.DataKPU;
@@ -59,6 +60,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<RWilayah> call, Throwable t) {
                 Log.i(TAG, "onFailure: " + t.getMessage());
+            }
+        });
+
+        findViewById(R.id.buttonMenu).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, WilayahActivity.class));
             }
         });
 

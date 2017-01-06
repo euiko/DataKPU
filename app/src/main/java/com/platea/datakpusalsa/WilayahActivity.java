@@ -24,10 +24,10 @@ public class WilayahActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.recycler_view_list_wilayah);
         getSupportActionBar().setTitle(WilayahActivity.class.getSimpleName());
 
-        final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view_list_wilayah);
         recyclerView.addItemDecoration(new DividerItemDecoration(this));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
