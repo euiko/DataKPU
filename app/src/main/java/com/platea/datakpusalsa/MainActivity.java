@@ -6,9 +6,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.google.gson.GsonBuilder;
 import com.platea.datakpusalsa.interfaces.DataKPU;
 import com.platea.datakpusalsa.model.database.Wilayah;
 import com.platea.datakpusalsa.model.retrofit.RWilayah;
+
+import java.lang.reflect.Modifier;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,7 +38,12 @@ public class MainActivity extends AppCompatActivity {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://data.kpu.go.id")
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(
+                        new GsonBuilder()
+                                .excludeFieldsWithModifiers(Modifier.FINAL, Modifier.TRANSIENT, Modifier.STATIC)
+                                .serializeNulls()
+                                .create()
+                ))
                 .build();
 
         DataKPU service = retrofit.create(DataKPU.class);

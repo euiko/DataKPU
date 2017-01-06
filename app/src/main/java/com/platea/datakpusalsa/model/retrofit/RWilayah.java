@@ -14,6 +14,18 @@ public class RWilayah {
     private String records;
     private List<Wilayah> data;
 
+    private RWilayah() {
+        super();
+    }
+
+    private RWilayah(String comm, String wilayah, String records, List<Wilayah> data) {
+        super();
+        this.comm = comm;
+        this.wilayah = wilayah;
+        this.records = records;
+        this.data = data;
+    }
+
     public List<Wilayah> getData() {
         return data;
     }
